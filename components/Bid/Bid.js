@@ -57,6 +57,17 @@ const Bid = ({ data, type }) => {
 			})
 			if (tokenData.data.data.results[0]) {
 				setToken(tokenData.data.data.results[0])
+			} else {
+				setToken({
+					token_id: data.token_id,
+					contract_id: data.contract_id,
+					metadata: {
+						media: '',
+						title: data.token_id,
+						collection_id: data.contract_id,
+						collection: data.contract_id,
+					},
+				})
 			}
 		} else {
 			const tokenData = await cachios.get(`${process.env.V2_API_URL}/token-series`, {
