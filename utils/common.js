@@ -257,3 +257,9 @@ export default function sha1(data, encoding) {
 export const decodeBase64 = (b64text) => {
 	return new TextDecoder().decode(Buffer.from(b64text, 'base64'))
 }
+
+export const getRandomInt = (min, max) => {
+	min = Math.ceil(min)
+	max = Math.floor(max)
+	return Math.floor(Math.random() * (max - min) + min)
+}
